@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="Bill-Pugh Singleton implementation with Thread Local" enabled="true" name="singleton-Bill-Pugh">	
+	/**
+	 * ===== Bill-Pugh Thread-Local Singleton Implementation =====
+	 */
+
+	/**
+	 * In a multi-threaded environment, usually the lifetime of singleton objects
+	 * matches with that of the the particular thread. Hence, thread-local Singleton
+	 * object.
+	 */
+	private static final InheritableThreadLocal&lt;${enclosing_type}&gt; SINGLETON = new InheritableThreadLocal&lt;${enclosing_type}&gt;() {
+		protected ${enclosing_type} initialValue() {
+			return new ${enclosing_type}();
+		}
+	};
+
+	/**
+	 * Gets the single instance of ${enclosing_type}.
+	 *
+	 * @return singleton object of this class
+	 */
+	public static ${enclosing_type} getInstance() {
+		return SINGLETON.get();
+	}
+
+	/**
+	 * ===========================================================
+	 */</template></templates>
